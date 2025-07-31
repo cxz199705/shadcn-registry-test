@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "filter",
-  "type": "registry:block",
+  "type": "registry:component",
   "title": "Filter",
   "description": "A filter component",
   "dependencies": [
@@ -19,7 +19,7 @@
     {
       "path": "registry/new-york/types/field.type.ts",
       "content": "type Prev = [never, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9];\n\ntype Join<K, P> = K extends string | number\n  ? P extends string | number\n    ? `${K}${\"\" extends P ? \"\" : \".\"}${P}`\n    : never\n  : never;\n\nexport type Field<T, D extends Prev[number] = 3> = [D] extends [never]\n  ? never\n  : T extends object\n  ? {\n      [K in keyof T]-?: K extends string | number\n        ? T[K] extends Date\n          ? `${K}`\n          : Join<K, Field<T[K], Prev[D]>>\n        : never;\n    }[keyof T]\n  : \"\";\n",
-      "type": "registry:file",
+      "type": "registry:component",
       "target": "components/turboost-ui/types/field.type.ts"
     },
     {
